@@ -19,9 +19,16 @@ class PPPLoan_fromBorrowingPerson(DiscoverableTransform):
 
         async def main():
 
+            full_name = request.Value
+
+            # If firstname lastname, add % for missing middle names/initials
+            name_part = full_name.split(' ')
+            if len(name_part) == 2:
+                full_name = name_part[0] + " % " + name_part[1]
+
             data = ckan.dataset("ppp-foia")
             search_terms = {
-                "BorrowerName": request.Value
+                "BorrowerName": full_name
             }
 
             results = data.get_rows(search_terms)
