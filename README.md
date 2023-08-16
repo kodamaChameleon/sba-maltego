@@ -25,7 +25,7 @@ Please use this tool ethically by respecting people's privacy and only collectin
    python3 setup.py
 ```
 
-🚨 **Huge File Alert!** The datasets can be quite large. For the current supported packages, a minimum of ```5.0 Gb``` is required for the SBA_local.db alone.
+🚨 **Huge File Alert!** The datasets can be quite large. For the current [supported packages](https://github.com/kodamaChameleon/sba-maltego/blob/main/supported_packages.json), a minimum of ```5.0 Gb``` is required for the SBA_local.db alone.
    
 ## 🧙 Features
 
