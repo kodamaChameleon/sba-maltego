@@ -1,4 +1,5 @@
 Owner,Author,Disclaimer,Description,Version,Name,UIName,URL,entityName,oAuthSettingId,transformSettingIDs,seedIDs
+KodamaChameleon,Kodama Chameleon <contact@kodamachameleon.com>,,Returns loan number from location by borrower,0.1,ppploan-fromborrowingaddress,Get PPP Loans [SBA],https://transforms.kodamachameleon.com/run/ppploan-fromborrowingaddress,maltego.Location,,,SBA
 KodamaChameleon,Kodama Chameleon <contact@kodamachameleon.com>,,Returns loan number from company by borrower,0.1,ppploan-fromborrowingcompany,Get PPP Loans [SBA],https://transforms.kodamachameleon.com/run/ppploan-fromborrowingcompany,maltego.Company,,,SBA
 KodamaChameleon,Kodama Chameleon <contact@kodamachameleon.com>,,Returns loan number from name by borrower,0.1,ppploan-fromborrowingperson,Get PPP Loans [SBA],https://transforms.kodamachameleon.com/run/ppploan-fromborrowingperson,maltego.Person,,,SBA
 KodamaChameleon,Kodama Chameleon <contact@kodamachameleon.com>,,Extrapolate details of PPP loan,0.1,ppploan-todetails,PPP Loan Details [SBA],https://transforms.kodamachameleon.com/run/ppploan-todetails,maltego.UniqueIdentifier,,,SBA
