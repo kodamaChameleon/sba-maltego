@@ -9,7 +9,7 @@ class dataset:
     def __init__(self, package_name):
         base_url = "https://data.sba.gov/api/3/action/package_show?id="
         self.send_api_request(base_url + package_name)
-        self.db_path  = "SBA_local.db"
+        self.db_path  = "data/SBA_local.db"
         self.package_name = package_name
 
     def send_api_request(self, api_url):

@@ -13,7 +13,7 @@ def build_config():
 # Dowload packages from SBA
 def download_packages():
 
-    with open("supported_packages.json", 'r') as f:
+    with open("data/supported_packages.json", 'r') as f:
         supported_packages = json.load(f)
 
     for package in supported_packages:
