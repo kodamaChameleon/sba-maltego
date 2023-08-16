@@ -1,5 +1,6 @@
 import subprocess
-from modules import ckan_api
+from modules import ckan
+import json
 
 # Install required python dependencies
 def install_requirements():
@@ -12,12 +13,11 @@ def build_config():
 # Dowload packages from SBA
 def download_packages():
 
-    supported_packages = [
-        "ppp-foia"
-    ]
+    with open("supported_packages.json", 'r') as f:
+        supported_packages = json.load(f)
 
     for package in supported_packages:
-        data = ckan_api.dataset(package)
+        data = ckan.dataset(package)
         data.fetch_csv()
 
 if __name__ == '__main__':

@@ -4,17 +4,6 @@ import sqlite3
 from io import StringIO
 import random
 
-def list_packages() -> list:
-    try:
-        url = "https://data.sba.gov/api/3/action/package_list"
-        response = requests.get(url)
-        response.raise_for_status()  # Raise an exception for HTTP errors
-
-        return response.json()['result']
-    
-    except requests.exceptions.RequestException as e:
-        print("Error making API request:", e)
-
 class dataset:
 
     def __init__(self, package_name):
@@ -73,20 +62,34 @@ class dataset:
         print("\nAll files downloaded!")
         conn.close()
 
-    def get_rows(self, conditions_dict: dict, table_name = None) -> pd:
-        conn = sqlite3.connect(self.db_path )
+    def get_rows(self, conditions_dict: dict, table_name=None) -> pd.DataFrame:
+        conn = sqlite3.connect(self.db_path)
 
-        # Default table name to package name
         if table_name is None:
             table_name = self.package_name
 
         # Generate query from conditions
         conditions = []
+        values = []
         for column, value in conditions_dict.items():
-            conditions.append(f"{column} LIKE '%{value}%'")
+            conditions.append(f"{column} LIKE ?")
+            values.append(f"%{value}%")
+
         query = f"SELECT * FROM '{table_name}' WHERE {' AND '.join(conditions)}"
 
-        result = pd.read_sql_query(query, conn)
+        result = pd.read_sql_query(query, conn, params=values)
         conn.close()
 
         return result
+    
+    def list_packages() -> list:
+        try:
+            url = "https://data.sba.gov/api/3/action/package_list"
+            response = requests.get(url)
+            response.raise_for_status()  # Raise an exception for HTTP errors
+
+            return response.json()['result']
+        
+        except requests.exceptions.RequestException as e:
+            print("Error making API request:", e)
+
