@@ -72,8 +72,8 @@ class dataset:
         conditions = []
         values = []
         for column, value in conditions_dict.items():
-            conditions.append(f"{column} LIKE ?")
-            values.append(f"%{value}%")
+            conditions.append(f"{column} LIKE ? OR {column} LIKE ?")
+            values.extend([value, f"{value} %"])
 
         query = f"SELECT * FROM '{table_name}' WHERE {' AND '.join(conditions)}"
 
