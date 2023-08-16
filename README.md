@@ -37,9 +37,9 @@ Will the real "John Doe" please stand up 🤔
 
 | Name                         | Description                                     | Input Type               | Notes                                                        |
 |------------------------------|-------------------------------------------------|--------------------------|--------------------------------------------------------------|
-| PPPLoan_fromBorrowingCompany | Returns loan number from company by borrower    | maltego.Company          | Use % as a wild card for missing names, initials or suffixes |
+| PPPLoan_fromBorrowingCompany | Returns loan number from company by borrower    | maltego.Company          | Use % as a wild card for missing title information           |
 | PPPLoan_fromBorrowingPerson  | Returns loan number from name by borrower       | maltego.Person           | Use % as a wild card for missing names, initials or suffixes |
-| PPPLoan_fromBorrowingAddress | Returns loan number from location by borrower   | maltego.Location         | Use % as a wild card for missing names, initials or suffixes |
+| PPPLoan_fromBorrowingAddress | Returns loan number from location by borrower   | maltego.Location         | Use % as a wild card for missing street, city, state, or zip |
 | PPPLoan_toDetails            | Extrapolate details of PPP loanaddresses        | maltego.UniqueIdentifier |                                                              |
    
 ## 📜 License
